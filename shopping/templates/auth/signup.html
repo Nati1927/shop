@@ -1,0 +1,72 @@
+{% extends "nav.html" %}
+{%block title%}
+
+shop
+
+{%endblock title%}
+
+
+{% block body %}
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+
+<div class="row">
+<div class="col-md-2"></div>
+    <div class="col-md-4">
+<br>
+<br>
+<br>
+
+
+<h1 data-aos="fade-up">signup </h1>
+
+<br>
+{%for message in messages %}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong></strong> {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+{% endfor %}
+
+<form action="/shopauth/signup/" method="post">
+    {% csrf_token %}
+<br>
+
+    <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="pass1">Password</label>
+        <input type="password" class="form-control" id="inputPassword"  name ="pass1" placeholder="Password" required>
+  <div class="mb-3">
+        <label class="form-label" for="pass2">Confirm Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password"  name="pass2"required>
+    </div>
+    <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="checkRemember" required>
+            <label class="form-check-label" for="checkRemember">Remember me</label>
+        </div>
+
+        
+
+
+
+    </div>
+    <button type="submit" href=  class="btn btn-primary">SignIn</button>
+    <br>
+    Already User? <a href="/shopauth/login/">Login</a>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+
+
+{% endblock body %}
